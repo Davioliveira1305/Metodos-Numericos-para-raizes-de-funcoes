@@ -11,10 +11,8 @@ e retorna uma raíz real e o número de iterações que o método levou
 """
 def bissect(f,x0,x1,eps):
     maxiter = iteracoes(eps,x0,x1)
-    
-    if(f(x0)*f(x1)>0):  return "O intervalo especificado não possui uma raíz"
-    if (abs(x1-x0)<eps):  return "Raíz já encontrada"
-    
+    if(f(x0)*f(x1)>0):  return("O intervalo especificado não possui uma raíz!!!!!", 0)
+    if (abs(x1-x0)<eps):  return("Raíz já encontrada!!!!!!!",0)
     k=1
     
     while(True):

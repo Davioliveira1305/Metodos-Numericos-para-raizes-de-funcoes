@@ -9,8 +9,8 @@ def method_falseposition(f ,x0 , x1,eps,maxit):
     x0 = x0
     x1 = x1
     xtol = ftol = eps  
-    if(f(x0)*f(x1)>0):  return "O intervalo especificado não possui uma raíz"
-    if (abs(x0-x1)<eps):  return "Raíz já encontrada"
+    if(f(x0)*f(x1)>0):  return ("O intervalo especificado não possui uma raíz", 0)
+    if (abs(x0-x1)<eps):  return("Raíz já encontrada", 0)
 
     while (True):
             

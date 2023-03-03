@@ -4,10 +4,10 @@ from bisection import bissect
 from false_position import method_falseposition
 
 def f(x):
-  return x**3 + 3*x
+  return x**2 + 3*x
 
 def d(x):
-  return 3 *  x ** 2 + 3
+  return 2 *  x  + 3
 
 def main():
   escolha1 = int(input("Digite 1 para escoher o Método de Newton-Rhapson \n Digite 2 para escoher o Método da Bisseção \n Digite 3 para escolher o Método da Falsa Posição: "))
@@ -25,17 +25,32 @@ def main():
   elif escolha1 == 2:
     x0 = float(input("Digite o primeiro ponto do intervalo: "))
     x1 = float(input("Digite o segundo ponto do intervalo: "))
+    if x0 > x1:
+      print("Seu ponto inicial é maior do que o ponto final!!!!!!!!!!!")
+      return main()    
     eps = float(input("Digite o erro epsilon para o intervalo entre as iterações: "))
     x,k = bissect(f,x0,x1,eps)
-    print(f"A raíz da função é x = {x}, o número de iterações que o método levou é {k}")
+    if type(x) != float: 
+      print(x)
+      return main()
+    else:
+      print(f"A raíz da função é x = {x}, o número de iterações que o método levou é {k}")
 
   else:
     x0 = float(input("Digite o primeiro ponto do intervalo: "))
     x1 = float(input("Digite o segundo ponto do intervalo: "))
+    if x0 > x1:
+      print("Seu ponto inicial é maior do que o ponto final!!!!!!!!!!!")
+      return main()
     eps = float(input("Digite o erro epsilon para o intervalo entre as iterações: "))
     maxiter = int(input("Digite o número máximo de iterações que o método realizará: "))
     x,k = method_falseposition(f,x0,x1,eps,maxiter)
-    print(f"A raíz da função é x = {x}, o número de iterações que o método levou é {k}")
+    if type(x) != float: 
+      print(x)
+      return main()
+    else:
+      print(f"A raíz da função é x = {x}, o número de iterações que o método levou é {k}")
+   
 
 main()
   
